@@ -5,18 +5,23 @@ import CanvasEdit from './components/CanvasEdit';
 function App() {
   const [canvasData, setCanvasData] = useState({
     adContent: '',
-    ctaText: '',
-    bgColor: '#0369A1'
+    ctaText: 'Shop now',
+    bgColor: '#0369A1',
+    imageData: null,
   });
 
   const handleCanvasUpdate = (data) => {
     setCanvasData({ ...canvasData, ...data });
   };
 
+  const handleImageUpload = (imageData) => {
+    setCanvasData({ ...canvasData, imageData });
+  };
+
   return (
     <div className='flex'>
       <CanvasOutput canvasData={canvasData} />
-      <CanvasEdit onUpdateCanvas={handleCanvasUpdate} />
+      <CanvasEdit onUpdateCanvas={handleCanvasUpdate} onImageUpload={handleImageUpload} />
     </div>
   );
 }
