@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from 'react';
 function CanvasOutput({ canvasData }) {
   const canvasRef = useRef(null);
   const [imagesLoaded, setImagesLoaded] = useState(false);
-  const patternImgRef = useRef(null); // Ref to hold the pattern image
+  const patternImgRef = useRef(null); 
 
   useEffect(() => {
     loadImages();
@@ -15,14 +15,14 @@ function CanvasOutput({ canvasData }) {
   
     patternImg.onload = () => {
       console.log('Image loaded successfully');
-      patternImgRef.current = patternImg; // Save the pattern image reference
+      patternImgRef.current = patternImg; 
       setImagesLoaded(true);
       drawCanvas();
     };
   
     patternImg.onerror = (e) => {
       console.error('Error loading image:', e);
-      console.log('Image URL:', patternImg.src); // Log the image URL for verification
+      console.log('Image URL:', patternImg.src); 
     };
   };
 
@@ -36,7 +36,7 @@ function CanvasOutput({ canvasData }) {
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     if (imagesLoaded) {
-      ctx.drawImage(patternImgRef.current, 0, 0, canvas.width, canvas.height); // Use patternImgRef.current
+      ctx.drawImage(patternImgRef.current, 0, 0, canvas.width, canvas.height); 
     }
   };
 
